@@ -1,4 +1,9 @@
 <p *ngFor="let product of products">
-    {{ product.id }}: {{ product.name }}
+    {{ product.id }}: {{ product.name }} <br>
+    {{ product.description }} <br>
+    {{ product.stock }} <br>
+    Price: ${{ product.price }} <br>
+    <img src="{{ product.image }}" alt="">
 </p>
+
 
