@@ -1,2 +1,6 @@
-<h3>Products</h3>
-<app-product-list (delProduct)="onDelProduct($event)" [products]="productList"></app-product-list>
+<h3>{{ category.name }}</h3>
+<h5>{{ category.description }}</h5>
+<app-product-list 
+    (delProduct)="onDelProduct($event)" 
+    [products]="productList | filter:'catId':category.id">
+</app-product-list>
