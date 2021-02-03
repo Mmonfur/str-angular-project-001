@@ -1,2 +1,2 @@
 <h3>Products</h3>
-<app-product-list [products]="productList"></app-product-list>
+<app-product-list (delProduct)="onDelProduct($event)" [products]="productList"></app-product-list>
