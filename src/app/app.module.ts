@@ -9,6 +9,7 @@ import { Cat02Component } from './page/cat02/cat02.component';
 import { HomeComponent } from './page/home/home.component';
 import { ProductPagerComponent } from './common/product-pager/product-pager.component';
 import { ProductListComponent } from './common/product-list/product-list.component';
+import { AdminComponent } from './page/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductListComponent } from './common/product-list/product-list.compone
     Cat02Component,
     HomeComponent,
     ProductPagerComponent,
-    ProductListComponent
+    ProductListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
