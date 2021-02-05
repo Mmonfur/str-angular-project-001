@@ -11,12 +11,13 @@ export interface IMenuItem {
 })
 export class ConfigService {
 
-  appName: string = 'Sample Webshop';
+  appName: string = 'Cars&Vans';
 
   menuItems: IMenuItem[] = [
     {text: 'Home', link: '/', icon: 'home'},
     {text: 'Cars', link: '/cars'},
     {text: 'Vans', link: '/vans'},
+    {text: 'Admin', link: '/admin'},
   ];
 
   constructor() { }
