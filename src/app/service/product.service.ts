@@ -1,21 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/model/product';
+import { Product } from '../model/product';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  apiUrl: string = 'http://localhost:3000/product';
+  list: any;
+
     constructor(
       private http: HttpClient
     ) { }
 
-    getAll(): Observable
+    getAll(): Observable<Product[]>{
+      return this.http.get<Product[]>('this.apiUrl')
+    }
 
   getFeatured(randomized?: boolean) : Product [] {
-    const featured = this. list.filter (item => item. featured);
+    const featured = this.list.filter (item => item. featured);
     return randomized ? this.randomize(featured) : featured;
   }  
 
