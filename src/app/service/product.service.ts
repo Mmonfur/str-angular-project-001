@@ -17,8 +17,9 @@ export class ProductService {
     ) { }
 
     getAll(): Observable<Product[]>{
-      return this.http.get<Product[]>('this.apiUrl')
+      return this.http.get<Product[]>(this.apiUrl)
     }
+
 
   getFeatured(randomized?: boolean) : Product [] {
     const featured = this.list.filter (item => item. featured);
