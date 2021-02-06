@@ -10,7 +10,7 @@ import { Product } from '../model/product';
 export class ProductService {
 
   apiUrl: string = 'http://localhost:3000/product';
-  list: any;
+  list: Product[];
 
     constructor(
       private http: HttpClient
