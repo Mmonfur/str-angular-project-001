@@ -16,11 +16,11 @@ export class DataEditorComponent implements OnInit {
   @Input() btnClass: string = 'btn-info';
   @Input() text: string = '';
 
-  cols: ITableCol[] = this.config.tableCols
+  
   ProductService: any;
   
 
-  constructor(private config: ConfigService) { 
+  constructor() { 
     
   }
 

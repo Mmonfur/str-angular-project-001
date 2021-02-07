@@ -14,10 +14,11 @@ export class AppComponent {
   myProduct: Product;
   productList$: Observable<Product[]> = this.ProductService.getAll();
   //listObservable: Observable<Product[]>; 
-
+  cols: ITableCol[] = this.config.tableCols;
   
 constructor(
-  private ProductService: ProductService,  
+  private ProductService: ProductService,
+  private config: ConfigService
   
 ) {
   //this.listObservable = ProductService.getAll();
