@@ -20,6 +20,14 @@ export class ProductService {
       return this.http.get<Product[]>(this.apiUrl)
     }
 
+    update(product: Product): Observable<Product> {
+      return this.http.patch<Product>(`${this.apiUrl}${product.id}`, product);
+    }
+    
+    remove(product: Product): Observable<Product> {
+      return this.http.delete<Product>(`${this.apiUrl}${product.id}`);
+    }
+
 
   getFeatured(randomized?: boolean) : Product [] {
     const featured = this.list.filter (item => item. featured);
