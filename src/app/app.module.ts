@@ -11,6 +11,7 @@ import { HomeComponent } from './page/home/home.component';
 import { ProductPagerComponent } from './common/product-pager/product-pager.component';
 import { ProductListComponent } from './common/product-list/product-list.component';
 import { AdminComponent } from './page/admin/admin.component';
+import { DataEditorComponent } from './common/data-editor/data-editor.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AdminComponent } from './page/admin/admin.component';
     HomeComponent,
     ProductPagerComponent,
     ProductListComponent,
-    AdminComponent
+    AdminComponent,
+    DataEditorComponent
   ],
   imports: [
     BrowserModule,
