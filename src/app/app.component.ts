@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './model/product';
+import { ConfigService, ITableCol } from './service/config.service';
 import { ProductService } from './service/product.service';
 
 @Component({
@@ -10,11 +11,43 @@ import { ProductService } from './service/product.service';
 })
 export class AppComponent {
   title = 'str-angular-project001';
-
+  myProduct: Product;
   productList$: Observable<Product[]> = this.ProductService.getAll();
-
+  //listObservable: Observable<Product[]>; 
+  cols: ITableCol[] = this.config.tableCols;
+  
 constructor(
   private ProductService: ProductService,
-) {}
+  private config: ConfigService
+  
+) {
+  //this.listObservable = ProductService.getAll();
+
+
+  this.ProductService.getAll().forEach( value => {
+    console.log("First Product:", value);
+  });
+
+  this.ProductService.getOne(1).forEach( value => {
+    console.log("First Product:", value);
+  });
+
+  this.ProductService.add({id:51 , catId:2 ,name: 'fostalicska' , description:'valami', price: 100, image:'', stock: 88 , featured: false, active:false}).forEach( value => {
+    console.log("Added Product:", value);
+  });
+
+  this.ProductService.update({id:11 , catId:2 ,name: 'fostalicska' , description:'valami', price: 100, image:'', stock: 88 , featured: false, active:false}).forEach( value => {
+    console.log("Updated Product:", value);
+  });
+
+  this.ProductService.remove(2).forEach( value => {
+    console.log("Deleted Product:", value);
+  });
+
+
+
+
+
+}
 
 }
