@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { ConfigService, ITableCol } from 'src/app/service/config.service';
 import { ProductService } from 'src/app/service/product.service';
+
 
 @Component({
   selector: 'app-data-editor',
@@ -10,60 +12,39 @@ import { ProductService } from 'src/app/service/product.service';
 export class DataEditorComponent implements OnInit {
   
   @Input() product: Product[] = [];
+  @Input() icon: string = 'fa-pen';
+  @Input() btnClass: string = 'btn-info';
+  @Input() text: string = '';
+
+  cols: ITableCol[] = this.config.tableCols
+  ProductService: any;
   
 
-  constructor() { }
-
-  columns = ["Id","Name","Description", "Price", "Stock"];
-  index = ["id", "name", "description", "price", "stock"];
-
-  
-
-  
-  @Output() delProduct: EventEmitter<Product[]> = new EventEmitter();
-  currentProduct: Product = new Product();
-
-  
-
-  @Output() selectClick: EventEmitter<Product[]> = new EventEmitter();
-  @Output() updateClick: EventEmitter<Product[]> = new EventEmitter();
-  @Output() deleteClick: EventEmitter<Product[]> = new EventEmitter();
-
+  constructor(private config: ConfigService) { 
+    
+  }
 
   ngOnInit(): void {
-    this.ProductService.getProducts().subscribe
-    (
-      (response)=>
-      {
-        this.product = response;
-      },
-      (error) => console.log(error)
-    )
-  }
-  
-  
-  onSelectButtonClick(product:Product ): void {
-    this.selectClick.emit(product);
   }
 
-  onUpdateButtonClick(product:Product): void {
-    this.updateClick.emit(product);
-  }
-  
-  onDeleteButtonClick(product:Product ): void {
-    this.deleteClick.emit(product);
+  onUpdate(product:Product): void {
+    this.ProductService.update(product).subscribe(
+      updatedProduct => console.log(updatedProduct)
+      
+    );
   }
 
+  onDelete(product:Product): void {
+    this.ProductService.remove(product).subscribe(
+      () => console.log('deleted')
+    );
+  }
+  
   onSelectProduct(product: Product): void {
-    this.currentProduct = product;
+    this.ProductService.select(product).subscribe(
+      () => console.log('selected')
+    );
   }
-
-  onDeleteProduct(product: Product): void {
-    this.delProduct.emit(product);
-    this.currentProduct = new Product();
-  }
-
-  
 
 
 }

@@ -1,44 +1,34 @@
-<p>data-editor works!</p>
-<h2>data-list</h2>
+<p>data-editor</p>
 <div class="container">
-    <ul>
-        <li *ngFor="let product of listObservable | async">
-            <button class="btn btn-primary">{{ product.name }}</button>
-
-        </li>
-    </ul>
+  <div class="row">
+    <div class="col12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+             <th *ngFor="let col of cols">{{ col.text }}></th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr *ngFor="let product of productList$ | async">
+              <td *ngFor="let col of cols" >
+                <input [(ngModel)]="user[col.key]" type="text" class="form-control">
+              </td>
+              <td>
+                <div class="btn-group">
+                  <button (click)="onUpdate(product)" class="btn btn-info">
+                    <i class="fa fa refresh"></i>
+                  </button>
+                  <button (click)="onDelete(product)" class="btn btn-info">
+                    <i class="fa fa trash"></i>
+                  </button>
+                  <button class (click)="onSelect(product)" class="btn btn-info">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<table id="data-list">
-    <tr>
-      <th *ngFor="let product of products">
-        {{col}}
-      </th>
-    </tr>
-    <tr *ngFor="let product of products">
-      <td *ngFor="let col of index">
-        {{product[col]}}
-      </td>
-      <td>
-        <div class="btn-group">
-            <app-action-button
-                [btnClass]="'btn-info'"
-                [icon]="'fa-eye'"
-                (clicked)="onSelectButtonClick()">
-            </app-action-button>
-            <app-action-button
-                [btnClass]="'btn btn-secondary'"
-                [icon]="'fa-refresh'"
-                (clicked)="onUpdateButtonClick()">
-            </app-action-button>
-            <app-action-button
-                [btnClass]="'btn-danger'"
-                [icon]="'fa-trash'"
-                (clicked)="onDeleteButtonClick()">
-            </app-action-button>
-        </div> 
-      </td>
-    </tr>
-  </table>
-
-

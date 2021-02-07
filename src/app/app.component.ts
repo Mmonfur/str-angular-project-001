@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './model/product';
+import { ConfigService, ITableCol } from './service/config.service';
 import { ProductService } from './service/product.service';
 
 @Component({
@@ -11,14 +12,15 @@ import { ProductService } from './service/product.service';
 export class AppComponent {
   title = 'str-angular-project001';
   myProduct: Product;
-  //productList$: Observable<Product[]> = this.ProductService.getAll();
-  listObservable: Observable<Product[]>; 
+  productList$: Observable<Product[]> = this.ProductService.getAll();
+  //listObservable: Observable<Product[]>; 
 
+  
 constructor(
-  private ProductService: ProductService,
+  private ProductService: ProductService,  
   
 ) {
-  this.listObservable = ProductService.getAll();
+  //this.listObservable = ProductService.getAll();
 
 
   this.ProductService.getAll().forEach( value => {
