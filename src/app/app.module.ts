@@ -14,6 +14,7 @@ import { ProductListComponent } from './common/product-list/product-list.compone
 import { AdminComponent } from './page/admin/admin.component';
 import { DataEditorComponent } from './common/data-editor/data-editor.component';
 import { Cat1PagerComponent } from './common/cat1-pager/cat1-pager.component';
+import { Cat2PagerComponent } from './common/cat2-pager/cat2-pager.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { Cat1PagerComponent } from './common/cat1-pager/cat1-pager.component';
     ProductListComponent,
     AdminComponent,
     DataEditorComponent,
-    Cat1PagerComponent
+    Cat1PagerComponent,
+    Cat2PagerComponent
   ],
   imports: [
     BrowserModule,
