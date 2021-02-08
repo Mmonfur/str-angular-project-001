@@ -12,6 +12,11 @@ export interface ITableCol{
   editable?:boolean;
 }
 
+export interface IHeadline{
+  key:string;
+  text: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +42,14 @@ export class ConfigService {
     {key: 'featured', text: 'Featured', editable: true},
     {key: 'active', text: 'Active', editable: true},
   ];
+
+  headlines: IHeadline[] =[
+    {key: 'catId', text: 'Category'},
+    {key: 'name', text: 'Name'},
+    {key: 'description', text: 'Description'},
+    {key: 'price', text: 'Price'},
+    {key: 'stock', text: 'Stock'}, 
+  ]
 
   constructor() { }
 }
