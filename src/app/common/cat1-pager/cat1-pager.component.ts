@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
-  selector: 'app-product-pager',
-  templateUrl: './product-pager.component.html',
-  styleUrls: ['./product-pager.component.scss']
+  selector: 'app-cat1-pager',
+  templateUrl: './cat1-pager.component.html',
+  styleUrls: ['./cat1-pager.component.scss']
 })
-export class ProductPagerComponent implements OnInit {
+export class Cat1PagerComponent implements OnInit {
 
   productList$: Observable<Product[]> = this.productService.getAll().pipe(
-    map(products => products.filter(product=> product.featured===true))
+    map(products => products.filter(product=> product.featured===true && product.catId===1002))
   );
 
   constructor(

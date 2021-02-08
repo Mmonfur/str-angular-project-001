@@ -1,0 +1,8 @@
+<p *ngFor="let product of productList$ | async | slice:0:5">
+    Brand: {{ product.name }} <br>
+    Description: {{ product.description }} <br>
+    Our stock of it: {{ product.stock }} <br>
+    Price: ${{ product.price }} <br>
+    Our ID: {{ product.id }} <br>
+    <img src="{{ product.image }}" alt="">
+</p>
