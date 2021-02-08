@@ -1,1 +1,17 @@
-<p>cat02 works!</p>
+<h3>Our van offers</h3>
+<div class="row">
+    <div *ngFor = "let product of productList$ | async" class="col-12 col-md-2 col-lg-2">
+        <div class="card mt-2">
+            <label *ngFor="let line of lines">{{ line.text }}</label>  
+            <div *ngFor = "let line of lines" class="card-body"> 
+                            
+                <input [(ngModel)]="product[line.key]" type="text" class="form-control" readonly> 
+            </div>
+            <button (click)="onDeleteClick(product)" class="btn btn-danger">
+                <i class="fa fa-trash"></i> delete
+            </button>
+        </div>
+        
+    </div>
+</div>
+
