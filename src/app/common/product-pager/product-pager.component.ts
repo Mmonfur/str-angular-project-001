@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { randomFillSync } from 'crypto';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-product-pager',
@@ -8,9 +12,13 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductPagerComponent implements OnInit {
 
-  @Input() products: Product[] = [];
+  productList$: Observable<Product[]> = this.productService.getAll().pipe(
+    map(products => products.filter(product=> product.featured===true))
+  );
 
-  constructor() { }
+  constructor(
+    private productService: ProductService,
+  ) { }
 
   ngOnInit(): void {
   }
