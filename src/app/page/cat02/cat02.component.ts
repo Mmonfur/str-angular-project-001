@@ -15,7 +15,7 @@ export class Cat02Component extends Base implements OnInit {
 
   lines: IHeadline[] = this.config.headlines;
   productList$: Observable<Product[]> = this.productService.getAll().pipe(
-    map(products => products.filter(product=> product.catId=1001))
+    map(products => products.filter(product=> product.catId===1001))
   );
 
   constructor(

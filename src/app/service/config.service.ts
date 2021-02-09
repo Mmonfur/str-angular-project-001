@@ -44,11 +44,12 @@ export class ConfigService {
   ];
 
   headlines: IHeadline[] =[
-    {key: 'catId', text: 'Category'},
+    {key: 'id', text: 'Our ID'},
     {key: 'name', text: 'Name'},
     {key: 'description', text: 'Description'},
     {key: 'price', text: 'Price'},
     {key: 'stock', text: 'Stock'}, 
+    {key: 'catId', text: 'Category'}
   ]
 
   constructor() { }
