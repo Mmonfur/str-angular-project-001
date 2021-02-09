@@ -101,14 +101,14 @@
     },
     {
       "id": 11,
-      "catId": 2,
-      "name": "fostalicska",
-      "description": "valami",
-      "price": 100,
-      "image": "",
-      "stock": 88,
-      "featured": false,
-      "active": false
+    "catId": 1002,
+    "name": "Honda",
+    "description": "vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in",
+    "image": "assets/img/11 honda.jpg",
+    "price": 6633.69,
+    "stock": 9,
+    "featured": false,
+    "active": true
     },
     {
       "id": 12,
